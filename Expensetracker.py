@@ -24,19 +24,19 @@ def add_expense():
     try:
         amount = float(input("Enter amount: "))
     except ValueError:
-        print("❌ Invalid amount. Please enter a number.")
+        print(" Invalid amount. Please enter a number.")
         return
 
     with open(FILE_NAME, mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([description, amount])
 
-    print("✅ Expense added successfully!")
+    print("Expense added successfully!")
 
 
 # View all expenses
 def view_expenses():
-    print("\n📄 All Expenses:")
+    print("\n All Expenses:")
     print("-" * 30)
 
     try:
@@ -62,7 +62,7 @@ def total_expenses():
             for row in reader:
                 total += float(row[1])
 
-        print(f"\n💰 Total Spent: ₹{total}")
+        print(f"\n Total Spent: ₹{total}")
     except FileNotFoundError:
         print("No expenses found.")
 
@@ -87,7 +87,7 @@ def menu():
         elif choice == "3":
             total_expenses()
         elif choice == "4":
-            print("👋 Exiting... Goodbye!")
+            print("Exiting... Goodbye!")
             break
         else:
             print("❌ Invalid choice. Try again.")
